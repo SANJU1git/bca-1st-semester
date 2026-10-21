@@ -1,0 +1,2080 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090b1d">
+<title>BCA Study Hub | First Semester</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg: #090b1d;
+    --panel: #151a35;
+    --text: #f4f5ff;
+    --muted: #a0a8c4;
+    --purple: #a78bfa;
+    --cyan: #57e8f4;
+    --line: #ffffff18;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Manrope', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+/* ANIMATED BACKGROUND */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 15% 20%, #7138ff30, transparent 35%),
+        radial-gradient(circle at 85% 35%, #00d9ff20, transparent 35%),
+        radial-gradient(circle at 50% 90%, #a855f720, transparent 40%),
+        #090b1d;
+    background-size: 150% 150%;
+    animation: backgroundFlow 15s ease-in-out infinite alternate;
+}
+
+@keyframes backgroundFlow {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 100%;
+    }
+}
+
+#floatingBackground {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.float-bubble {
+    position: absolute;
+    bottom: -100px;
+    border: 1px solid #a78bfa40;
+    border-radius: 50%;
+    background: linear-gradient(
+        135deg,
+        #a78bfa12,
+        #57e8f410
+    );
+    box-shadow: 0 0 25px #a78bfa12;
+    animation: floatUp linear infinite;
+}
+
+.float-bubble:nth-child(1) {
+    left: 8%;
+    width: 45px;
+    height: 45px;
+    animation-duration: 17s;
+}
+
+.float-bubble:nth-child(2) {
+    left: 23%;
+    width: 22px;
+    height: 22px;
+    animation-duration: 12s;
+    animation-delay: 3s;
+}
+
+.float-bubble:nth-child(3) {
+    left: 42%;
+    width: 65px;
+    height: 65px;
+    animation-duration: 20s;
+    animation-delay: 2s;
+}
+
+.float-bubble:nth-child(4) {
+    left: 65%;
+    width: 30px;
+    height: 30px;
+    animation-duration: 14s;
+    animation-delay: 5s;
+}
+
+.float-bubble:nth-child(5) {
+    left: 82%;
+    width: 55px;
+    height: 55px;
+    animation-duration: 19s;
+    animation-delay: 1s;
+}
+
+.float-bubble:nth-child(6) {
+    left: 93%;
+    width: 20px;
+    height: 20px;
+    animation-duration: 13s;
+    animation-delay: 4s;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.7;
+    }
+    90% {
+        opacity: 0.4;
+    }
+    100% {
+        transform: translateY(-120vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+button, input {
+    font: inherit;
+}
+
+button, a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+.cyan {
+    color: var(--cyan);
+}
+
+.container {
+    width: 90%;
+    max-width: 1150px;
+    margin: auto;
+}
+
+/* NAVIGATION */
+
+.navbar {
+    min-height: 75px;
+    padding: 14px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: #0b0d20eF;
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(15px);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.logo-icon {
+    width: 43px;
+    height: 43px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    color: #090b1d;
+    background: linear-gradient(135deg, var(--purple), var(--cyan));
+    font-size: 23px;
+    box-shadow: 0 0 25px #a78bfa45;
+    animation: logoGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes logoGlow {
+    from {
+        box-shadow: 0 0 10px #a78bfa30;
+    }
+    to {
+        box-shadow: 0 0 30px #57e8f460;
+    }
+}
+
+.logo small {
+    display: block;
+    font-size: 9px;
+    color: var(--muted);
+    letter-spacing: 0;
+    margin-top: 3px;
+}
+
+.nav-button {
+    border: 1px solid #57e8f450;
+    background: #ffffff08;
+    color: var(--cyan);
+    border-radius: 25px;
+    padding: 11px 14px;
+    font-size: 10px;
+    font-weight: 800;
+    transition: 0.3s;
+}
+
+.nav-button:hover {
+    background: var(--cyan);
+    color: #090b1d;
+    box-shadow: 0 0 20px #57e8f450;
+    transform: translateY(-2px);
+}
+
+/* PAGE TRANSITIONS */
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+    animation: pageEnter 0.5s ease both;
+}
+
+@keyframes pageEnter {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.eyebrow {
+    color: var(--cyan);
+    font-size: 10px;
+    letter-spacing: 2px;
+    font-weight: 800;
+}
+
+/* HERO SECTION */
+
+.hero {
+    min-height: 400px;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: center;
+    gap: 25px;
+    padding: 55px 0 40px;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 6vw, 67px);
+    line-height: 1.13;
+    letter-spacing: -2px;
+    margin: 20px 0;
+}
+
+.gradient-text {
+    background: linear-gradient(100deg, #c4b5fd, #57e8f4);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    max-width: 520px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 2;
+}
+
+.main-button {
+    display: inline-block;
+    margin-top: 24px;
+    padding: 14px 21px;
+    border: 0;
+    border-radius: 12px;
+    background: linear-gradient(110deg, var(--purple), var(--cyan));
+    color: #090b1d;
+    font-size: 12px;
+    font-weight: 800;
+    transition: 0.3s;
+    box-shadow: 0 5px 25px #a78bfa25;
+}
+
+.main-button:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 10px 30px #57e8f440;
+}
+
+/* FLOATING HERO BOOK */
+
+.hero-art {
+    min-height: 280px;
+    display: grid;
+    place-items: center;
+    position: relative;
+}
+
+.orbit {
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    border: 1px solid #a78bfa45;
+    border-radius: 50%;
+    animation: orbitSpin 18s linear infinite;
+}
+
+.orbit.two {
+    width: 270px;
+    height: 190px;
+    border-color: #57e8f440;
+    animation-direction: reverse;
+}
+
+@keyframes orbitSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.hero-book {
+    width: 160px;
+    height: 175px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    border: 1px solid #a78bfa70;
+    border-radius: 25px;
+    background: linear-gradient(145deg, #252950, #11152e);
+    box-shadow: 0 0 60px #7559ff20;
+    animation: bookFloat 4s ease-in-out infinite;
+}
+
+@keyframes bookFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(-2deg);
+    }
+    50% {
+        transform: translateY(-13px) rotate(2deg);
+    }
+}
+
+.hero-book span {
+    font-size: 48px;
+}
+
+.hero-book strong {
+    font-size: 22px;
+    background: linear-gradient(90deg, var(--purple), var(--cyan));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero-book small {
+    color: var(--muted);
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+/* STATS */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 22px 12px;
+    border: 1px solid var(--line);
+    border-radius: 17px;
+    background: #11142aeF;
+    margin: 10px 0 70px;
+    backdrop-filter: blur(10px);
+}
+
+.stats div {
+    text-align: center;
+}
+
+.stats strong {
+    display: block;
+    font-size: 22px;
+    color: var(--cyan);
+}
+
+.stats span {
+    font-size: 9px;
+    color: var(--muted);
+}
+
+/* SECTION HEADINGS */
+
+.section-heading {
+    margin-bottom: 25px;
+}
+
+.section-heading h2 {
+    font-size: clamp(26px, 4vw, 36px);
+    margin: 10px 0;
+}
+
+.section-heading p {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+/* SEARCH */
+
+.search-box,
+.resource-search {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 16px;
+    min-height: 55px;
+    background: #11152beF;
+    border: 1px solid var(--line);
+    border-radius: 13px;
+    margin-bottom: 22px;
+    transition: 0.3s;
+}
+
+.search-box:focus-within,
+.resource-search:focus-within {
+    border-color: var(--cyan);
+    box-shadow: 0 0 18px #57e8f415;
+}
+
+.search-box span,
+.resource-search span {
+    color: var(--cyan);
+    font-size: 24px;
+}
+
+.search-box input,
+.resource-search input {
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: white;
+    font-size: 12px;
+}
+
+.search-box button,
+.resource-search button {
+    border: 0;
+    color: var(--muted);
+    background: transparent;
+    padding: 8px;
+}
+
+/* SUBJECT GRID */
+
+.subject-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 17px;
+}
+
+/* ANIMATED SUBJECT BUTTONS */
+
+.subject-card {
+    --card-color: #a78bfa;
+    width: 100%;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    padding: 22px;
+    border: 1px solid #ffffff20;
+    border-radius: 18px;
+    background: linear-gradient(145deg, #171b38eF, #101329f5);
+    color: var(--text);
+    backdrop-filter: blur(12px);
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+    animation: cardAppear 0.6s both;
+}
+
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.subject-card::before {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    right: -75px;
+    top: -100px;
+    border-radius: 50%;
+    background: var(--card-color);
+    filter: blur(45px);
+    opacity: 0.3;
+    pointer-events: none;
+    transition: 0.4s;
+}
+
+.subject-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 70%;
+    height: 100%;
+    background: linear-gradient(
+        100deg,
+        transparent,
+        #ffffff12,
+        transparent
+    );
+    transform: skewX(-20deg);
+    transition: left 0.7s ease;
+    pointer-events: none;
+}
+
+.subject-card:hover::after {
+    left: 150%;
+}
+
+.subject-card:hover {
+    transform: translateY(-7px) scale(1.02);
+    border-color: var(--card-color);
+    box-shadow: 0 12px 35px #00000040,
+                0 0 20px color-mix(in srgb, var(--card-color) 20%, transparent);
+}
+
+.subject-card:active {
+    transform: scale(0.98);
+}
+
+.subject-card:focus-visible {
+    outline: 2px solid var(--cyan);
+    outline-offset: 3px;
+}
+
+.card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.subject-icon {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    border: 1px solid var(--card-color);
+    color: var(--card-color);
+    background: #ffffff09;
+    font-weight: 800;
+    font-size: 17px;
+    box-shadow: 0 0 15px #a78bfa15;
+    transition: transform 0.3s;
+}
+
+.subject-card:hover .subject-icon {
+    transform: rotate(-8deg) scale(1.1);
+}
+
+.arrow {
+    font-size: 22px;
+    color: var(--muted);
+    transition: 0.3s;
+}
+
+.subject-card:hover .arrow {
+    color: var(--card-color);
+    transform: translate(3px, -3px);
+}
+
+.subject-card h3 {
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 20px 0 8px;
+}
+
+.subject-card p {
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+.card-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    border-top: 1px solid var(--line);
+    margin-top: 18px;
+    padding-top: 14px;
+    color: var(--card-color);
+    font-size: 9px;
+    font-weight: 800;
+}
+
+.empty-state {
+    grid-column: 1 / -1;
+    padding: 35px 15px;
+    text-align: center;
+    border: 1px solid var(--line);
+    border-radius: 15px;
+    color: var(--muted);
+    line-height: 2;
+}
+
+/* COMING SOON */
+
+.coming-soon {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    margin: 75px 0 55px;
+    padding: 55px 25px;
+    border: 1px solid #a78bfa50;
+    border-radius: 27px;
+    background:
+        radial-gradient(circle at 10% 15%, #57e8f426, transparent 35%),
+        radial-gradient(circle at 90% 90%, #a78bfa35, transparent 40%),
+        linear-gradient(135deg, #10152f, #191339, #0b1930);
+}
+
+.coming-icon {
+    font-size: 43px;
+    margin-bottom: 18px;
+    animation: bookFloat 3s ease-in-out infinite;
+}
+
+.coming-label {
+    display: inline-block;
+    color: var(--cyan);
+    padding: 9px 14px;
+    border: 1px solid #57e8f444;
+    border-radius: 30px;
+    font-size: 9px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.coming-soon h2 {
+    font-size: clamp(28px, 5vw, 43px);
+    line-height: 1.4;
+    margin-bottom: 15px;
+}
+
+.coming-soon p {
+    max-width: 600px;
+    margin: auto;
+    color: #c3c9df;
+    font-size: 12px;
+    line-height: 2;
+}
+
+.semester-badge {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 19px;
+    border-radius: 30px;
+    background: linear-gradient(120deg, #6d28d9, #4338ca);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 15px;
+    border-top: 1px solid var(--line);
+    padding: 25px 0;
+    margin-top: 30px;
+    font-size: 10px;
+    color: var(--muted);
+}
+
+/* SUBJECT RESOURCE PAGE */
+
+.back-link {
+    display: inline-block;
+    margin: 28px 0;
+    color: var(--cyan);
+    font-size: 11px;
+    font-weight: 800;
+    border: 0;
+    background: transparent;
+    transition: 0.3s;
+}
+
+.back-link:hover {
+    transform: translateX(-4px);
+}
+
+.subject-hero {
+    position: relative;
+    overflow: hidden;
+    padding: 30px;
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    background: linear-gradient(130deg, #171b38, #101329);
+    margin-bottom: 35px;
+}
+
+.subject-hero-top {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    margin-bottom: 20px;
+}
+
+.large-subject-icon {
+    width: 65px;
+    height: 65px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    border-radius: 18px;
+    color: var(--card-color);
+    border: 1px solid var(--line);
+    background: #ffffff08;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.subject-hero h1 {
+    font-size: clamp(26px, 5vw, 43px);
+    line-height: 1.3;
+    margin: 12px 0;
+}
+
+.subject-hero p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+.resource-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0 30px;
+}
+
+.category-chip {
+    border: 1px solid var(--line);
+    border-radius: 30px;
+    padding: 11px 14px;
+    background: #151a35;
+    color: #e7eaff;
+    font-size: 10px;
+    transition: 0.25s;
+}
+
+.category-chip:hover,
+.category-chip:focus {
+    border-color: var(--cyan);
+    color: var(--cyan);
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px #57e8f420;
+}
+
+.resource-category {
+    scroll-margin-top: 100px;
+    margin: 30px 0;
+    animation: pageEnter 0.4s both;
+}
+
+.category-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 17px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--line);
+}
+
+.category-heading h2 {
+    font-size: 19px;
+}
+
+.category-count {
+    font-size: 10px;
+    color: var(--muted);
+}
+
+.resource-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px;
+}
+
+.resource-item {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    min-width: 0;
+    padding: 16px;
+    border: 1px solid var(--line);
+    border-radius: 15px;
+    background: #11142a;
+    transition: 0.25s;
+}
+
+.resource-item:hover {
+    border-color: #57e8f470;
+    transform: translateY(-3px);
+}
+
+.pdf-icon {
+    width: 44px;
+    height: 48px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    border-radius: 11px;
+    color: #ff9ca9;
+    background: #ff8da116;
+    border: 1px solid #ff8da130;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.resource-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.resource-info h3 {
+    font-size: 12px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+    margin-bottom: 7px;
+}
+
+.available {
+    color: #7ce7a5;
+    font-size: 9px;
+    font-weight: 800;
+}
+
+.unavailable {
+    color: #f6b86c;
+    font-size: 9px;
+    font-weight: 800;
+}
+
+.resource-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 13px;
+}
+
+.resource-btn {
+    display: inline-block;
+    text-align: center;
+    border: 1px solid #57e8f455;
+    border-radius: 8px;
+    padding: 10px 12px;
+    background: #57e8f40b;
+    color: var(--cyan);
+    font-size: 10px;
+    font-weight: 800;
+    transition: 0.25s;
+}
+
+.resource-btn:hover {
+    background: var(--cyan);
+    color: #090b1d;
+    transform: translateY(-2px);
+}
+
+.resource-btn.secondary {
+    color: var(--purple);
+    border-color: #a78bfa55;
+    background: #a78bfa0b;
+}
+
+.resource-btn.secondary:hover {
+    background: var(--purple);
+    color: #090b1d;
+}
+
+.no-results {
+    padding: 25px;
+    text-align: center;
+    color: var(--muted);
+    border: 1px dashed var(--line);
+    border-radius: 14px;
+    font-size: 12px;
+    line-height: 2;
+}
+
+/* PDF VIEWER */
+
+.pdf-viewer {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: none;
+    flex-direction: column;
+    background: #090b1d;
+}
+
+.pdf-viewer.active {
+    display: flex;
+}
+
+.pdf-header {
+    min-height: 65px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--line);
+}
+
+.pdf-header h2 {
+    font-size: 13px;
+}
+
+.pdf-header p {
+    font-size: 9px;
+    color: var(--muted);
+    margin-top: 4px;
+}
+
+.close-pdf {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: #171b38;
+    color: white;
+    font-size: 18px;
+    transition: 0.25s;
+}
+
+.close-pdf:hover {
+    background: #ff647c;
+    transform: rotate(90deg);
+}
+
+.pdf-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 12px 18px;
+}
+
+.pdf-toolbar button,
+.pdf-toolbar a {
+    padding: 11px 14px;
+    border: 1px solid var(--line);
+    border-radius: 9px;
+    background: #151a35;
+    color: var(--cyan);
+    font-size: 10px;
+    font-weight: 800;
+}
+
+#pdfFrame {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background: #111;
+}
+
+/* MOBILE RESPONSIVE DESIGN */
+
+@media (max-width: 850px) {
+    .subject-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .hero {
+        grid-template-columns: 1fr 0.7fr;
+    }
+
+    .resource-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .navbar {
+        min-height: 68px;
+        padding: 10px 5%;
+    }
+
+    .logo {
+        font-size: 12px;
+        gap: 8px;
+    }
+
+    .logo-icon {
+        width: 37px;
+        height: 37px;
+    }
+
+    .nav-button {
+        font-size: 8px;
+        padding: 10px;
+    }
+
+    .hero {
+        display: block;
+        padding-top: 45px;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+    }
+
+    .hero-art {
+        min-height: 260px;
+        margin-top: 10px;
+    }
+
+    .stats {
+        margin-bottom: 55px;
+    }
+
+    .stats strong {
+        font-size: 17px;
+    }
+
+    .stats span {
+        font-size: 8px;
+    }
+
+    .subject-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .subject-card {
+        padding: 21px;
+    }
+
+    .coming-soon {
+        padding: 42px 18px;
+        margin-top: 55px;
+    }
+
+    .subject-hero {
+        padding: 22px 17px;
+    }
+
+    .resource-item {
+        align-items: flex-start;
+    }
+
+    .resource-actions {
+        flex-direction: column;
+    }
+
+    .resource-btn {
+        width: 100%;
+    }
+
+    .category-heading h2 {
+        font-size: 17px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- FLOATING BACKGROUND BUBBLES -->
+<div id="floatingBackground" aria-hidden="true">
+    <span class="float-bubble"></span>
+    <span class="float-bubble"></span>
+    <span class="float-bubble"></span>
+    <span class="float-bubble"></span>
+    <span class="float-bubble"></span>
+    <span class="float-bubble"></span>
+</div>
+
+<header class="navbar">
+    <a href="#" class="logo" onclick="showHome();return false">
+        <span class="logo-icon">S</span>
+        <span>
+            STUDY<span class="cyan">HUB</span>
+            <small>Your Learning Space</small>
+        </span>
+    </a>
+
+    <button class="nav-button" id="navButton" onclick="showHome()">
+        FIRST SEMESTER
+    </button>
+</header>
+
+<main class="container">
+
+<!-- HOME PAGE -->
+<section id="homePage" class="page active">
+
+    <div class="hero">
+        <div>
+            <span class="eyebrow">YOUR SMARTER STUDY SPACE</span>
+
+            <h1>
+                Study smarter.<br>
+                <span class="gradient-text">Score better.</span>
+            </h1>
+
+            <p>
+                Your first-semester study library, all in one place.
+                Find question papers, notes, syllabi, lab manuals and
+                question banks quickly and easily.
+            </p>
+
+            <button class="main-button"
+                onclick="document.getElementById('subjectsSection').scrollIntoView({behavior:'smooth'})">
+                EXPLORE FIRST SEMESTER ↓
+            </button>
+        </div>
+
+        <div class="hero-art">
+            <div class="orbit"></div>
+            <div class="orbit two"></div>
+
+            <div class="hero-book">
+                <span>📚</span>
+                <strong>BCA</strong>
+                <small>STUDY HUB</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="stats">
+        <div>
+            <strong>06</strong>
+            <span>SUBJECTS</span>
+        </div>
+        <div>
+            <strong>01</strong>
+            <span>SEMESTER</span>
+        </div>
+        <div>
+            <strong>24/7</strong>
+            <span>STUDY ACCESS</span>
+        </div>
+    </div>
+
+    <section id="subjectsSection">
+        <div class="section-heading">
+            <span class="eyebrow">FIRST SEMESTER LIBRARY</span>
+            <h2>Your Subjects<span class="cyan">.</span></h2>
+            <p>Select any subject card to open its organised study resources.</p>
+        </div>
+
+        <div class="search-box">
+            <span>⌕</span>
+            <input id="subjectSearch"
+                type="search"
+                placeholder="Search Kannada, C++, DCO, notes..."
+                autocomplete="off">
+            <button onclick="clearSubjectSearch()" aria-label="Clear search">✕</button>
+        </div>
+
+        <div id="subjectGrid" class="subject-grid"></div>
+    </section>
+
+    <section class="coming-soon">
+        <div class="coming-icon">🚀</div>
+        <span class="coming-label">THE NEXT CHAPTER</span>
+
+        <h2>
+            Second Semester<br>
+            <span class="gradient-text">Coming Soon!</span>
+        </h2>
+
+        <p>
+            More subjects, more notes, more question papers and more
+            learning resources are on the way. Keep visiting StudyHub
+            for future updates!
+        </p>
+
+        <span class="semester-badge">
+            ✦ SEMESTER 02 · IN PREPARATION
+        </span>
+    </section>
+
+    <footer class="footer">
+        <strong>STUDY<span class="cyan">HUB</span></strong>
+        <span>Learn better. Prepare smarter.</span>
+        <span>First Semester Study Materials</span>
+    </footer>
+</section>
+
+<!-- SUBJECT PAGE -->
+<section id="subjectPage" class="page">
+
+    <button class="back-link" onclick="showHome()">
+        ← BACK TO ALL SUBJECTS
+    </button>
+
+    <div class="subject-hero">
+        <div class="subject-hero-top">
+            <div id="largeSubjectIcon" class="large-subject-icon">📚</div>
+
+            <div>
+                <span class="eyebrow">FIRST SEMESTER · STUDY LIBRARY</span>
+                <h1 id="subjectTitle">Study Materials</h1>
+            </div>
+        </div>
+
+        <p id="subjectDescription">
+            Your resources, organised in one place.
+        </p>
+    </div>
+
+    <div class="section-heading">
+        <span class="eyebrow">QUICK NAVIGATION</span>
+        <h2>Explore Resources<span class="cyan">.</span></h2>
+        <p>Tap a category to jump directly to its materials.</p>
+    </div>
+
+    <nav id="categoryMenu"
+        class="resource-menu"
+        aria-label="Resource categories"></nav>
+
+    <div class="resource-search">
+        <span>⌕</span>
+        <input id="resourceSearch"
+            type="search"
+            placeholder="Search papers, unit notes, syllabus..."
+            autocomplete="off">
+
+        <button onclick="clearResourceSearch()"
+            aria-label="Clear resource search">✕</button>
+    </div>
+
+    <p id="searchStatus"
+        style="font-size:11px;color:var(--muted);margin-bottom:20px"
+        aria-live="polite">
+        Explore all available study materials.
+    </p>
+
+    <div id="resourceGrid"></div>
+
+    <footer class="footer">
+        <strong>STUDY<span class="cyan">HUB</span></strong>
+        <button class="nav-button" onclick="showHome()">← ALL SUBJECTS</button>
+        <span>Keep learning!</span>
+    </footer>
+</section>
+
+</main>
+
+<!-- PDF VIEWER -->
+<div id="pdfViewer"
+    class="pdf-viewer"
+    role="dialog"
+    aria-modal="true"
+    aria-label="PDF viewer">
+
+    <div class="pdf-header">
+        <div>
+            <h2 id="pdfTitle">Study Material</h2>
+            <p>BCA STUDY HUB · PDF READER</p>
+        </div>
+
+        <button class="close-pdf"
+            onclick="closePDF()"
+            aria-label="Close PDF viewer">✕</button>
+    </div>
+
+    <div class="pdf-toolbar">
+        <a id="downloadPDF"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer">
+            ↗ OPEN / DOWNLOAD PDF
+        </a>
+
+        <button onclick="closePDF()">← BACK TO MATERIALS</button>
+    </div>
+
+    <iframe id="pdfFrame" title="Study Material PDF"></iframe>
+</div>
+
+<!-- PART 2 CONTINUES HERE -->
+
+<script>
+/* ==========================================
+   BCA STUDY HUB — SUBJECTS AND RESOURCES
+========================================== */
+
+const subjects = [
+
+{
+    id: "kannada",
+    name: "Kannada",
+    short: "Kannada Study Materials",
+    icon: "ಅ",
+    color: "#c3a0ff",
+    categories: [
+        {
+            title: "Last Year Question Papers",
+            icon: "📝",
+            files: [
+                {
+                    name: "Kannada 2024–2025 Question Paper",
+                    url: "https://drive.google.com/file/d/1rkDcDlRQztDSq7lrzdmVtzejVKpNiHUw/view?usp=drivesdk"
+                },
+                {
+                    name: "Kannada 2025–2026 Question Paper",
+                    url: "https://drive.google.com/file/d/1ZneH7fO4DC5aDfL4aLg1Wt-cgIbhNDw0/view?usp=drivesdk"
+                }
+            ]
+        },
+        {
+            title: "Kannada Notes",
+            icon: "📚",
+            files: [
+                {
+                    name: "Kannada Notes PDF",
+                    url: "https://drive.google.com/file/d/1D3hQivEvpk8_oLFK7oQ3et1ckVYvlhKD/view?usp=drivesdk"
+                }
+            ]
+        }
+    ]
+},
+
+{
+    id: "english",
+    name: "English",
+    short: "English Study Materials",
+    icon: "Aa",
+    color: "#57e8f4",
+    categories: [
+        {
+            title: "Last Year Question Papers",
+            icon: "📝",
+            files: [
+                {
+                    name: "English 2024–2025 Question Paper",
+                    url: "https://drive.google.com/file/d/1jiWOEr8EGzSemlcUNSeM-SMd-h7Ylj-k/view?usp=drivesdk"
+                },
+                {
+                    name: "English 2025–2026 Question Paper",
+                    url: "https://drive.google.com/file/d/13omHFPGEv6WlCUqycY74bNFbJYX0Kjf5/view?usp=drivesdk"
+                }
+            ]
+        }
+    ]
+},
+
+{
+    id: "cv",
+    name: "Constitutional Values (CV)",
+    short: "Constitution and Citizenship",
+    icon: "CV",
+    color: "#ffbd69",
+    categories: [
+        {
+            title: "Last Year Question Papers",
+            icon: "📝",
+            files: [
+                {
+                    name: "CV 2024–2025 Question Paper",
+                    url: "https://drive.google.com/file/d/1ED2IWxkPj_fqaRxkMqsEAjiRi6h1tJKS/view?usp=drivesdk"
+                },
+                {
+                    name: "CV 2025–2026 Question Paper",
+                    url: "https://drive.google.com/file/d/1diAcfm9SMBkchqtknIDZL5ma9k4025T9/view?usp=drivesdk"
+                }
+            ]
+        }
+    ]
+},
+
+{
+    id: "cpp",
+    name: "C++ Programming",
+    short: "Problem Solving and Programming using C++",
+    icon: "C++",
+    color: "#7ce7a5",
+    categories: [
+        {
+            title: "Syllabus",
+            icon: "📋",
+            files: [
+                {
+                    name: "C++ Syllabus",
+                    url: "https://drive.google.com/file/d/1FoBs-r3Ki5hNVi0HBxLCkX-linW9Ptjq/view?usp=drivesdk"
+                }
+            ]
+        },
+        {
+            title: "Last Year Question Papers",
+            icon: "📝",
+            files: [
+                {
+                    name: "C++ 2024–2025 Question Paper",
+                    url: "https://drive.google.com/file/d/1dgMb-vnc2g3BZ_aPVyZuCaPiCmDHaRsn/view?usp=drivesdk"
+                },
+                {
+                    name: "C++ 2025–2026 Question Paper",
+                    url: "https://drive.google.com/file/d/1DfSB2TPRYqJOK6JeIJBI5Nx1iR5O-KSL/view?usp=drivesdk"
+                }
+            ]
+        },
+        {
+            title: "Complete Notes",
+            icon: "📚",
+            files: [
+                {
+                    name: "C++ All Units Notes",
+                    url: "https://drive.google.com/file/d/14UbfecXUrQ8RR1gnVYJ-CTSRjHZ723As/view?usp=drivesdk"
+                }
+            ]
+        },
+        {
+            title: "Unit-wise Notes",
+            icon: "📖",
+            files: [
+                {
+                    name: "C++ Unit 1 Notes",
+                    url: "https://drive.google.com/file/d/1XEqWaxVvYjCFonj4DqnhGCT5ORbpYy8Z/view?usp=drivesdk"
+                },
+                {
+                    name: "C++ Unit 2 Notes",
+                    url: "https://drive.google.com/file/d/1f6scOtfTMvOP0VpXzfX8Q9p-JHtGPFn-/view?usp=drivesdk"
+                },
+                {
+                    name: "C++ Unit 3 Notes",
+                    url: "https://drive.google.com/file/d/1qrlmVjm7Dyb-qpt3dinI_A51y3eHyqwJ/view?usp=drivesdk"
+                },
+                {
+                    name: "C++ Unit 4 Notes",
+                    url: "https://drive.google.com/file/d/1wW6Q6dNN5WXW53AjzSqTR-98SssPcWjx/view?usp=drivesdk"
+                }
+            ]
+        },
+        {
+            title: "Question Bank",
+            icon: "❓",
+            files: [
+                {
+                    name: "C++ Question Bank",
+                    url: "https://drive.google.com/file/d/1azrHG3a2IRA1iPLL2GK5SwvRzT5lGUXW/view?usp=drivesdk"
+                }
+            ]
+        },
+        {
+            title: "Lab Manuals",
+            icon: "💻",
+            files: [
+                {
+                    name: "C++ Lab Manual Part A",
+                    url: "https://drive.google.com/file/d/1LtMoVFXyHMIHTZCsh2RBzJLoy3BDE9Pw/view?usp=drivesdk"
+                },
+                {
+                    name: "C++ Lab Manual Part B",
+                    url: "https://drive.google.com/file/d/1bIfcaZZMJDk-9zLJhO2FzPBRdfOLkzck/view?usp=drivesdk"
+                }
+            ]
+        }
+    ]
+},
+
+{
+    id: "dco",
+    name: "DCO",
+    short: "Computer Fundamentals and Digital Electronics",
+    icon: "DCO",
+    color: "#ff8da1",
+    categories: [
+        {
+            title: "Syllabus",
+            icon: "📋",
+            files: [
+                {
+                    name: "DCO Syllabus",
+                    url: "https://drive.google.com/file/d/1wiL1z1T1w08myVGu7U5RiSyardmka7Xi/view?usp=drivesdk"
+                }
+            ]
+        },
+        {
+            title: "Last Year Question Papers",
+            icon: "📝",
+            files: [
+                {
+                    name: "DCO 2024–2025 Question Paper",
+                    url: "https://drive.google.com/file/d/1UyKJzG4NwNLn-NgKdSr0nnvV05vutI9J/view?usp=drivesdk"
+                },
+                {
+                    name: "DCO 2025–2026 Question Paper",
+                    url: "https://drive.google.com/file/d/16pB2UT3PJIPCTVg_GqTwQHZWAmOSfHcI/view?usp=drivesdk"
+                }
+            ]
+        },
+        {
+            title: "Complete Notes",
+            icon: "📚",
+            files: [
+                {
+                    name: "DCO All Units Notes",
+                    url: "https://drive.google.com/file/d/1IIXpf2Ag_kssnnzf8Qr8oBK-7DHhKqTg/view?usp=drivesdk"
+                },
+                {
+                    name: "DCO Handwritten Notes",
+                    url: "https://drive.google.com/file/d/1cD07pCJFCCF42zQKgzVjWIGfRQLeLtZ3/view?usp=drivesdk"
+                }
+            ]
+        },
+        {
+            title: "Lab Manuals",
+            icon: "💻",
+            files: [
+                {
+                    name: "DCO Lab Manual Part A",
+                    url: "https://drive.google.com/file/d/1vzOoOIZYixGrAu0N4i0UjDS80aDHKSqE/view?usp=drivesdk"
+                },
+                {
+                    name: "DCO Lab Manual Part B",
+                    url: "https://drive.google.com/file/d/16X8OdTEBv2zn2g2J0iMyNtlWjBh4m8lm/view?usp=drivesdk"
+                }
+            ]
+        },
+        {
+            title: "Question Bank",
+            icon: "❓",
+            files: [
+                {
+                    name: "DCO Question Bank",
+                    url: "https://drive.google.com/file/d/18NrQrm3CCdEI8HtLg6vnah7btqYKl60n/view?usp=drivesdk"
+                }
+            ]
+        }
+    ]
+},
+
+{
+    id: "msc",
+    name: "Mathematical and Statistical Computing (MSc)",
+    short: "Mathematical and Statistical Computing",
+    icon: "∑",
+    color: "#f5a6ff",
+    categories: [
+        {
+            title: "Syllabus",
+            icon: "📋",
+            files: [
+                {
+                    name: "MSc Syllabus",
+                    url: "https://drive.google.com/file/d/1MZc7q2F9Du6z5blYhR3CP3w61AlZ8Qs7/view?usp=drivesdk"
+                }
+            ]
+        },
+        {
+            title: "Last Year Question Papers",
+            icon: "📝",
+            files: [
+                {
+                    name: "MSc 2024–2025 Question Paper",
+                    url: "https://drive.google.com/file/d/1XQ0jWNmb54E687j-lB19LQPLJpFUBpt1/view?usp=drivesdk"
+                },
+                {
+                    name: "MSc 2025–2026 Question Paper",
+                    url: "https://drive.google.com/file/d/13oKCBkO9hx_3SMaNcLXngYH9R--CzlQf/view?usp=drivesdk"
+                }
+            ]
+        },
+        {
+            title: "Handwritten Notes",
+            icon: "📚",
+            files: [
+                {
+                    name: "MSc Handwritten Unit 1 Notes",
+                    url: "https://drive.google.com/file/d/17FukSL7tGLJZ6zDgajUj8Ho0zhIO6iLi/view?usp=drivesdk"
+                },
+                {
+                    name: "MSc Handwritten Unit 2 Notes",
+                    url: "https://drive.google.com/file/d/1nOpwgewtstJaR0cP6Boarge5j7inba5c/view?usp=drivesdk"
+                },
+                {
+                    name: "MSc Handwritten Notes",
+                    url: "https://drive.google.com/file/d/1T-rUHhB-15q9fC6mrRoD-tsUi824S9Ej/view?usp=drivesdk"
+                }
+            ]
+        },
+        {
+            title: "Lab Manual",
+            icon: "💻",
+            files: [
+                {
+                    name: "MSc Lab Manual",
+                    url: "https://drive.google.com/file/d/1_3iULEb1s9fXvO9NsJZMW4VWjMcCb3mS/view?usp=drivesdk"
+                }
+            ]
+        },
+        {
+            title: "Formula Sheet",
+            icon: "∑",
+            files: [
+                {
+                    name: "MSc Formula Sheet",
+                    url: "https://drive.google.com/file/d/1fHk_6q41RQJkCYP-KrWPLzaCynr3m0Xc/view?usp=drivesdk"
+                }
+            ]
+        }
+    ]
+}
+];
+
+
+/* ==========================================
+   PAGE NAVIGATION
+========================================== */
+
+const homePage = document.getElementById("homePage");
+const subjectPage = document.getElementById("subjectPage");
+const navButton = document.getElementById("navButton");
+
+let currentSubject = null;
+
+function showHome() {
+    closePDF();
+
+    subjectPage.classList.remove("active");
+    homePage.classList.add("active");
+
+    navButton.textContent = "FIRST SEMESTER";
+    document.title = "BCA Study Hub | First Semester";
+
+    history.replaceState(null, "", location.pathname);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function openSubject(id) {
+    const subject = subjects.find(item => item.id === id);
+
+    if (!subject) return;
+
+    currentSubject = subject;
+
+    homePage.classList.remove("active");
+    subjectPage.classList.add("active");
+
+    navButton.textContent = "← ALL SUBJECTS";
+
+    document.getElementById("subjectTitle").textContent =
+        subject.name;
+
+    document.getElementById("subjectDescription").textContent =
+        subject.short + " — browse the resources below.";
+
+    const icon = document.getElementById("largeSubjectIcon");
+
+    icon.textContent = subject.icon;
+    icon.style.setProperty("--card-color", subject.color);
+
+    document.getElementById("resourceSearch").value = "";
+
+    renderCategoryMenu(subject);
+    renderResources(subject, "");
+
+    document.title = subject.name + " | BCA Study Hub";
+
+    history.replaceState(
+        null,
+        "",
+        "?subject=" + encodeURIComponent(id)
+    );
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+
+/* ==========================================
+   SUBJECT CARDS AND SEARCH
+========================================== */
+
+function renderSubjects(query = "") {
+    const grid = document.getElementById("subjectGrid");
+    const q = query.toLowerCase().trim();
+
+    const filtered = subjects.filter(subject =>
+        (
+            subject.name + " " +
+            subject.short + " " +
+            subject.categories.map(c => c.title).join(" ")
+        ).toLowerCase().includes(q)
+    );
+
+    grid.innerHTML = "";
+
+    if (!filtered.length) {
+        grid.innerHTML = `
+            <div class="empty-state">
+                <strong>No matching subject found.</strong><br>
+                Try searching for Kannada, English, C++, DCO or MSc.
+            </div>
+        `;
+        return;
+    }
+
+    filtered.forEach((subject, index) => {
+        const card = document.createElement("button");
+
+        card.type = "button";
+        card.className = "subject-card";
+        card.style.setProperty("--card-color", subject.color);
+        card.style.animationDelay = (index * 0.07) + "s";
+
+        card.innerHTML = `
+            <div class="card-top">
+                <span class="subject-icon">
+                    ${escapeHTML(subject.icon)}
+                </span>
+                <span class="arrow">↗</span>
+            </div>
+
+            <h3>${escapeHTML(subject.name)}</h3>
+
+            <p>${escapeHTML(subject.short)}</p>
+
+            <div class="card-bottom">
+                <span>OPEN SUBJECT ↗</span>
+                <span>${subject.categories.length} CATEGORIES</span>
+            </div>
+        `;
+
+        card.addEventListener("click", () => {
+            openSubject(subject.id);
+        });
+
+        grid.appendChild(card);
+    });
+}
+
+function clearSubjectSearch() {
+    document.getElementById("subjectSearch").value = "";
+    renderSubjects();
+}
+
+document.getElementById("subjectSearch").addEventListener(
+    "input",
+    event => renderSubjects(event.target.value)
+);
+
+
+/* ==========================================
+   CATEGORY NAVIGATION
+========================================== */
+
+function renderCategoryMenu(subject) {
+    const menu = document.getElementById("categoryMenu");
+
+    menu.innerHTML = "";
+
+    subject.categories.forEach((category, index) => {
+        const button = document.createElement("button");
+
+        button.type = "button";
+        button.className = "category-chip";
+        button.textContent = category.icon + " " + category.title;
+
+        button.addEventListener("click", () => {
+            const section = document.getElementById("category-" + index);
+
+            if (section) {
+                section.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            }
+        });
+
+        menu.appendChild(button);
+    });
+}
+
+
+/* ==========================================
+   RESOURCES AND RESOURCE SEARCH
+========================================== */
+
+function renderResources(subject, query = "") {
+    const grid = document.getElementById("resourceGrid");
+    const q = query.toLowerCase().trim();
+
+    grid.innerHTML = "";
+
+    let totalMatches = 0;
+    let categoryMatches = 0;
+
+    subject.categories.forEach((category, index) => {
+        const files = category.files.filter(file =>
+            (
+                file.name + " " +
+                category.title + " " +
+                subject.name
+            ).toLowerCase().includes(q)
+        );
+
+        if (!files.length) return;
+
+        totalMatches += files.length;
+        categoryMatches++;
+
+        const section = document.createElement("section");
+
+        section.className = "resource-category";
+        section.id = "category-" + index;
+
+        const heading = document.createElement("div");
+        heading.className = "category-heading";
+
+        const h2 = document.createElement("h2");
+        h2.textContent = category.icon + " " + category.title;
+
+        const count = document.createElement("span");
+        count.className = "category-count";
+        count.textContent = files.length + " resource(s)";
+
+        heading.appendChild(h2);
+        heading.appendChild(count);
+        section.appendChild(heading);
+
+        const list = document.createElement("div");
+        list.className = "resource-list";
+
+        files.forEach(file => {
+            const item = document.createElement("article");
+            item.className = "resource-item";
+
+            const icon = document.createElement("div");
+            icon.className = "pdf-icon";
+            icon.textContent = "PDF";
+
+            const info = document.createElement("div");
+            info.className = "resource-info";
+
+            const name = document.createElement("h3");
+            name.textContent = file.name;
+
+            const status = document.createElement("span");
+            status.className = file.url ? "available" : "unavailable";
+            status.textContent = file.url
+                ? "✓ AVAILABLE"
+                : "✦ COMING SOON";
+
+            info.appendChild(name);
+            info.appendChild(status);
+
+            if (file.url) {
+                const actions = document.createElement("div");
+                actions.className = "resource-actions";
+
+                const view = document.createElement("button");
+
+                view.type = "button";
+                view.className = "resource-btn";
+                view.textContent = "View PDF ↗";
+
+                view.addEventListener("click", () => {
+                    openPDF(file.url, file.name);
+                });
+
+                const open = document.createElement("a");
+
+                open.className = "resource-btn secondary";
+                open.href = file.url;
+                open.target = "_blank";
+                open.rel = "noopener noreferrer";
+                open.textContent = "Open in Drive";
+
+                actions.appendChild(view);
+                actions.appendChild(open);
+                info.appendChild(actions);
+            }
+
+            item.appendChild(icon);
+            item.appendChild(info);
+            list.appendChild(item);
+        });
+
+        section.appendChild(list);
+        grid.appendChild(section);
+    });
+
+    const status = document.getElementById("searchStatus");
+
+    if (totalMatches === 0) {
+        grid.innerHTML = `
+            <div class="no-results">
+                <strong>No resources found.</strong><br>
+                Try another word, such as notes, question paper,
+                unit, syllabus or lab manual.
+            </div>
+        `;
+
+        status.textContent = "No matching resources.";
+    } else {
+        status.textContent =
+            "Found " + totalMatches +
+            " resource(s) in " + categoryMatches +
+            " categor" + (categoryMatches === 1 ? "y." : "ies.");
+    }
+}
+
+document.getElementById("resourceSearch").addEventListener(
+    "input",
+    event => {
+        if (currentSubject) {
+            renderResources(currentSubject, event.target.value);
+        }
+    }
+);
+
+function clearResourceSearch() {
+    document.getElementById("resourceSearch").value = "";
+
+    if (currentSubject) {
+        renderResources(currentSubject, "");
+    }
+}
+
+
+/* ==========================================
+   PDF VIEWER
+========================================== */
+
+function openPDF(url, title) {
+    const viewer = document.getElementById("pdfViewer");
+    const frame = document.getElementById("pdfFrame");
+    const titleElement = document.getElementById("pdfTitle");
+    const openLink = document.getElementById("downloadPDF");
+
+    let previewURL = url;
+
+    const match = url.match(
+        /drive\.google\.com\/file\/d\/([^/]+)/
+    );
+
+    if (match) {
+        previewURL =
+            "https://drive.google.com/file/d/" +
+            match[1] + "/preview";
+    }
+
+    titleElement.textContent = title;
+    frame.src = previewURL;
+    openLink.href = url;
+
+    viewer.classList.add("active");
+    document.body.style.overflow = "hidden";
+}
+
+function closePDF() {
+    const viewer = document.getElementById("pdfViewer");
+    const frame = document.getElementById("pdfFrame");
+
+    if (viewer) {
+        viewer.classList.remove("active");
+        document.body.style.overflow = "";
+    }
+
+    if (frame) {
+        frame.src = "about:blank";
+    }
+}
+
+document.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+        closePDF();
+    }
+});
+
+/* ==============================================
+   SAFE TEXT HANDLING
+============================================== */
+
+function escapeHTML(value) {
+    return String(value).replace(/[&<>"']/g, char => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+    })[char]);
+}
+
+/* ==============================================
+   START WEBSITE
+============================================== */
+
+renderSubjects();
+
+const initialSubject =
+    new URLSearchParams(location.search).get("subject");
+
+if (
+    initialSubject &&
+    subjects.some(subject => subject.id === initialSubject)
+) {
+    openSubject(initialSubject);
+}
+</script>
+
+</body>
+</html>
+    
