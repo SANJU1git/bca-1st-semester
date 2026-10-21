@@ -1133,6 +1133,84 @@ button {
         scroll-behavior: auto !important;
     }
 }
+    .eyebrow {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+
+    background: linear-gradient(
+        90deg,
+        #00f5ff,
+        #a78bfa,
+        #ff79c6,
+        #00f5ff
+    );
+
+    background-size: 300% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    padding: 12px 20px;
+    border: 1px solid rgba(0, 245, 255, 0.35);
+    border-radius: 12px;
+
+    animation:
+        gradientFlow 4s linear infinite,
+        floatingText 3s ease-in-out infinite,
+        glowingBorder 2s ease-in-out infinite alternate;
+
+    transition: transform 0.3s ease;
+}
+
+/* Moving gradient animation */
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% center;
+    }
+    100% {
+        background-position: 300% center;
+    }
+}
+
+/* Floating animation */
+@keyframes floatingText {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Glowing border animation */
+@keyframes glowingBorder {
+    from {
+        box-shadow: 0 0 5px rgba(0, 245, 255, 0.15);
+    }
+    to {
+        box-shadow:
+            0 0 12px rgba(0, 245, 255, 0.4),
+            0 0 24px rgba(167, 139, 250, 0.2);
+    }
+}
+
+/* Interactive hover effect */
+.eyebrow:hover {
+    transform: scale(1.08);
+    cursor: pointer;
+}
+
+/* Mobile-friendly design */
+@media (max-width: 600px) {
+    .eyebrow {
+        font-size: 14px;
+        letter-spacing: 2.5px;
+        padding: 10px 14px;
+    }
+}
 </style>
 </head>
 
