@@ -3,11 +3,9 @@
  <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta name="description" content="Download Mandya University BCA notes, 1st and 3rd semester study materials, subject-wise notes, question papers and PDFs at BCA Study Hub.">
   <meta content="#071527" name="theme-color"/>
-  <meta name="google-site-verification" content="hpfBCs0BHT9IlOlL_tD3tLTRdWKEEJjqjOXsJ_Vbkf0" />
   <title>
-   Mandya University BCA Notes | BCA Study Hub
+   BCA Study Hub &mdash; Navy &amp; Emerald
   </title>
   <link href="https://fonts.googleapis.com" rel="preconnect"/>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
@@ -945,9 +943,216 @@ body{position:relative;isolation:isolate;background-color:var(--bg)}
  .ambient-bubble,.ambient-speck,.ambient-scene:before,.ambient-scene:after{animation:none!important}
  .ambient-bubble{opacity:.12;bottom:15%}
 }
+
+/* SCREENSHOT-STYLE SIDEBAR MENU */
+.menu-toggle{position:fixed;left:16px;top:14px;z-index:1200;width:45px;height:45px;border:1px solid rgba(120,180,255,.25);border-radius:14px;background:#0c1b32;color:#9bd5ff;font-size:23px;box-shadow:0 8px 28px #0005}
+.side-overlay{position:fixed;inset:0;background:rgba(0,0,0,.58);backdrop-filter:blur(4px);z-index:1190;opacity:0;visibility:hidden;transition:.25s}
+.sidebar{position:fixed;inset:0 auto 0 0;width:min(82vw,310px);padding:26px 16px;background:linear-gradient(180deg,#071426,#050d1b);border-right:1px solid rgba(130,180,255,.18);z-index:1195;transform:translateX(-105%);transition:transform .3s cubic-bezier(.2,.8,.2,1);overflow-y:auto}
+.sidebar.open{transform:translateX(0)}.side-overlay.open{opacity:1;visibility:visible}
+.side-brand{display:flex;align-items:center;gap:12px;padding:8px 8px 28px}
+.side-logo{width:54px;height:54px;display:grid;place-items:center;border-radius:17px;background:linear-gradient(135deg,#4f8cff,#83d8ff);font-size:27px;font-weight:900;color:#061327}
+.side-brand b{font-size:19px;letter-spacing:1px}.side-brand small{display:block;color:#91a9c7;font-size:11px;margin-top:4px}
+.side-nav{display:grid;gap:8px}.side-nav button{display:flex;align-items:center;gap:15px;width:100%;min-height:57px;padding:14px 15px;border:0;border-radius:15px;background:transparent;color:#a8bad5;text-align:left;font-weight:750;font-size:14px;transition:.2s}
+.side-nav button .side-icon{width:24px;text-align:center;font-size:19px}.side-nav button:hover,.side-nav button.active{background:linear-gradient(110deg,#438bff,#76caff);color:#06142b;box-shadow:0 8px 25px #3d8eff35;transform:translateX(3px)}
+.side-nav button:active{transform:scale(.98)}
+body.menu-open{overflow:hidden}
+body{padding-top:0}
+.navbar{padding-left:75px}
+#browsePage .section-heading{margin-top:30px}
+.browse-filter{display:flex;flex-wrap:wrap;gap:9px;margin:18px 0 24px}
+.browse-filter button{border:1px solid var(--line);background:var(--panel);color:var(--muted);padding:10px 14px;border-radius:25px;font-weight:700;font-size:12px}
+.browse-filter button.active{background:var(--cyan);color:#061527}
+.browse-item{display:flex;align-items:center;gap:13px;padding:16px;margin-bottom:11px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(135deg,#10243b,#0b1b2d);animation:pageEnter .35s both}
+.browse-item .browse-symbol{width:43px;height:43px;flex-shrink:0;display:grid;place-items:center;border-radius:12px;background:#183958;font-size:20px}
+.browse-item h3{font-size:14px;margin-bottom:5px}.browse-item p{font-size:11px;color:var(--muted);margin-bottom:9px}
+.browse-item .resource-btn{display:inline-flex;margin:3px 5px 0 0}
+@media(max-width:600px){.navbar{padding-left:72px}.container{width:91%}}
+
+
+/* PREMIUM POLISH — visual-only enhancements; original content and links stay intact */
+:root{
+ --bg:#050b18;--bg2:#0a1730;--panel:#0d1d36;--panel2:#142847;
+ --text:#f2f7ff;--muted:#a4b6d2;--purple:#4f7cff;--cyan:#62c9ff;
+ --green:#54e6bd;--pink:#9eabff;--line:rgba(116,177,255,.17);
+}
+body{
+ background:
+  radial-gradient(ellipse at 8% 0%,rgba(49,102,220,.17),transparent 38%),
+  radial-gradient(ellipse at 94% 85%,rgba(31,190,158,.10),transparent 34%),
+  var(--bg);
+}
+.navbar{
+ background:rgba(5,12,27,.78);
+ border-bottom:1px solid rgba(122,177,255,.16);
+ box-shadow:0 8px 35px rgba(0,0,0,.16);
+}
+.menu-toggle{
+ background:linear-gradient(145deg,#132746,#09172b);
+ border:1px solid rgba(119,192,255,.3);
+ color:#bde8ff;
+ box-shadow:0 7px 25px rgba(35,119,255,.18),inset 0 1px rgba(255,255,255,.08);
+ transition:transform .25s,box-shadow .25s,background .25s;
+ animation:menuBreath 4s ease-in-out infinite;
+}
+.menu-toggle:hover{transform:rotate(-5deg) scale(1.06);box-shadow:0 0 28px rgba(67,155,255,.36)}
+.sidebar{
+ background:linear-gradient(165deg,rgba(9,24,47,.98),rgba(4,11,24,.99) 70%);
+ border-right:1px solid rgba(105,178,255,.23);
+ box-shadow:18px 0 65px rgba(0,0,0,.35);
+}
+.side-logo{
+ background:linear-gradient(135deg,#438cff,#68d7ff 55%,#6de8c4);
+ box-shadow:0 0 28px rgba(76,157,255,.3);
+ animation:logoGlow 5s ease-in-out infinite;
+}
+.side-nav button{
+ position:relative;overflow:hidden;border:1px solid transparent;
+}
+.side-nav button:before{
+ content:"";position:absolute;inset:0;transform:translateX(-110%);
+ background:linear-gradient(105deg,transparent,rgba(255,255,255,.13),transparent);
+ transition:transform .55s;pointer-events:none;
+}
+.side-nav button:hover:before{transform:translateX(110%)}
+.side-nav button.active{
+ background:linear-gradient(110deg,#438bff,#72d2ff);
+ box-shadow:0 9px 28px rgba(54,143,255,.25),inset 0 1px rgba(255,255,255,.3);
+}
+button,a,.resource-btn,.card,.subject-card,.semester-card,.browse-item{
+ transition:transform .22s ease,box-shadow .25s ease,border-color .25s ease,filter .25s ease;
+}
+button:active,.resource-btn:active{transform:scale(.97)}
+.card:hover,.subject-card:hover,.semester-card:hover,.browse-item:hover{
+ transform:translateY(-4px);
+ border-color:rgba(93,190,255,.42);
+ box-shadow:0 14px 34px rgba(0,0,0,.22),0 0 22px rgba(54,142,255,.08);
+}
+.resource-btn{
+ border:1px solid rgba(112,190,255,.25);
+ background:linear-gradient(120deg,rgba(45,108,212,.2),rgba(42,191,165,.12));
+}
+.resource-btn:hover{
+ filter:brightness(1.16);transform:translateY(-2px);
+ box-shadow:0 8px 22px rgba(56,143,255,.2);
+}
+.section-heading h2,.hero h1{letter-spacing:-.035em}
+.gradient-text{
+ background-image:linear-gradient(100deg,#b6d5ff,#65caff,#73edc4,#a9b6ff);
+ background-size:250% auto;
+ animation:gradientMove 7s ease infinite;
+}
+.browse-item{
+ background:linear-gradient(135deg,rgba(18,40,70,.92),rgba(8,22,42,.94));
+ border-color:rgba(115,174,255,.15);
+}
+.browse-item .browse-symbol{
+ background:linear-gradient(145deg,#1a3b67,#153e50);
+ box-shadow:inset 0 1px rgba(255,255,255,.08);
+}
+.search-box{
+ border-color:rgba(111,183,255,.22);
+ box-shadow:0 10px 28px rgba(0,0,0,.12);
+}
+input:focus{
+ outline:none;border-color:#66c9ff!important;
+ box-shadow:0 0 0 3px rgba(91,183,255,.12)!important;
+}
+@keyframes menuBreath{
+ 0%,100%{box-shadow:0 7px 25px rgba(35,119,255,.15),inset 0 1px rgba(255,255,255,.08)}
+ 50%{box-shadow:0 7px 32px rgba(35,119,255,.3),inset 0 1px rgba(255,255,255,.12)}
+}
+@keyframes logoGlow{
+ 0%,100%{filter:saturate(1);box-shadow:0 0 22px rgba(76,157,255,.22)}
+ 50%{filter:saturate(1.25);box-shadow:0 0 32px rgba(76,157,255,.38)}
+}
+@keyframes premiumEntrance{
+ from{opacity:0;transform:translateY(13px)}
+ to{opacity:1;transform:translateY(0)}
+}
+.page.active{animation:premiumEntrance .42s cubic-bezier(.2,.7,.2,1) both}
+@media(prefers-reduced-motion:reduce){
+ *,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}
+}
+
+
+/* ORIGINAL HERO BOOK — upgraded 3D book motion and premium cover */
+.hero-art{perspective:1100px}
+.hero-book{
+ transform-style:preserve-3d;
+ transform-origin:50% 55%;
+ border-radius:9px 20px 20px 9px;
+ border:1px solid rgba(124,195,255,.52);
+ background:
+  linear-gradient(90deg,rgba(3,12,28,.82) 0 7px,transparent 7px 12px),
+  linear-gradient(145deg,rgba(28,66,112,.98),rgba(10,24,49,.98) 65%,rgba(13,53,70,.98));
+ box-shadow:
+  12px 18px 0 -7px #071326,
+  15px 20px 0 -8px rgba(118,193,255,.35),
+  0 24px 60px rgba(30,112,255,.28),
+  inset 5px 0 9px rgba(0,0,0,.38),
+  inset 0 1px rgba(255,255,255,.18);
+ animation:heroBook3D 6s ease-in-out infinite;
+}
+.hero-book:before{
+ inset:-7px;
+ border-radius:12px 24px 24px 12px;
+ border:1px solid rgba(89,225,190,.5);
+ animation:bookGlow 3.2s ease-in-out infinite;
+}
+.hero-book:after{
+ content:"";
+ position:absolute;
+ right:-8px;top:8px;bottom:8px;width:8px;
+ border-radius:0 5px 5px 0;
+ background:repeating-linear-gradient(to bottom,#d9eaff 0 2px,#7898bf 2px 3px);
+ box-shadow:3px 3px 7px #02091688;
+ transform:translateZ(-5px);
+}
+.book-emoji{
+ display:inline-block;
+ filter:drop-shadow(0 9px 10px rgba(0,0,0,.36));
+ animation:bookIcon3D 4.5s ease-in-out infinite;
+ transform-origin:50% 80%;
+}
+.hero-book strong{
+ text-shadow:0 0 20px rgba(90,177,255,.25);
+ letter-spacing:1.5px;
+}
+.hero-book small{color:#c4d7f0}
+@keyframes heroBook3D{
+ 0%,100%{transform:translateY(0) rotateX(2deg) rotateY(-9deg) rotateZ(-1deg)}
+ 50%{transform:translateY(-13px) rotateX(-2deg) rotateY(9deg) rotateZ(1deg)}
+}
+@keyframes bookIcon3D{
+ 0%,100%{transform:rotateY(-12deg) rotateX(2deg) scale(1)}
+ 50%{transform:rotateY(16deg) rotateX(-4deg) scale(1.08)}
+}
+@media(max-width:600px){
+ .hero-book{animation:heroBook3D 6s ease-in-out infinite}
+}
+@media(prefers-reduced-motion:reduce){
+ .hero-book,.book-emoji{animation:none!important}
+}
+
  </style>
  </head>
  <body>
+
+  <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">☰</button>
+  <div class="side-overlay" id="sideOverlay"></div>
+  <aside class="sidebar" id="sidebar" aria-label="Study Hub navigation">
+   <div class="side-brand"><div class="side-logo">S</div><div><b>STUDY<span class="cyan">HUB</span></b><small>BCA Learning Platform</small></div></div>
+   <nav class="side-nav">
+    <button data-route="dashboard" class="active"><span class="side-icon">◇</span>Dashboard</button>
+    <button data-route="semesters"><span class="side-icon">▤</span>Semesters</button>
+    <button data-route="papers"><span class="side-icon">📝</span>Question Papers</button>
+    <button data-route="important"><span class="side-icon">❓</span>Important Questions</button>
+    <button data-route="resources"><span class="side-icon">📚</span>Study Resources</button>
+    <button data-route="recent"><span class="side-icon">◴</span>Recently Added</button>
+    <button data-route="about"><span class="side-icon">✦</span>About Study Hub</button>
+   </nav>
+  </aside>
+
   <div class="ambient-scene" aria-hidden="true">
    <span class="ambient-bubble" style="--x:5%;--size:42px;--duration:23s;--delay:-8s;--drift:45px;--opacity:.25"></span>
    <span class="ambient-bubble" style="--x:16%;--size:18px;--duration:19s;--delay:-14s;--drift:-30px;--opacity:.32"></span>
@@ -1015,16 +1220,14 @@ body{position:relative;isolation:isolate;background-color:var(--bg)}
       <div class="orbit three">
       </div>
       <div class="hero-book">
-       <span class="book-emoji">
-        📚
-       </span>
-       <strong>
-        STUDY HUB
-       </strong>
-       <small>
-        LEARN &middot; GROW &middot; SUCCEED
-       </small>
+       <span class="book-emoji">📚</span>
+       <strong>STUDY HUB</strong>
+       <small>LEARN &middot; GROW &middot; SUCCEED</small>
       </div>
+      <div class="hero-float-icon icon-book" aria-hidden="true">📘</div>
+      <div class="hero-float-icon icon-brain" aria-hidden="true">🧠</div>
+      <div class="hero-float-icon icon-laptop" aria-hidden="true">💻</div>
+      <div class="hero-float-icon icon-spark" aria-hidden="true">✨</div>
      </div>
     </div>
     <div class="stats">
@@ -1217,6 +1420,15 @@ body{position:relative;isolation:isolate;background-color:var(--bg)}
     </footer>
    </section>
   </main>
+
+   <!-- SIDEBAR BROWSE PAGE: populated from the existing website resources -->
+   <section class="page" id="browsePage">
+    <button class="back-link" onclick="showHome()">← BACK TO HOME</button>
+    <div class="section-heading"><span class="eyebrow" id="browseEyebrow">BCA STUDY LIBRARY</span><h2 id="browseTitle">Question <span class="gradient-text">Papers.</span></h2><p id="browseDescription">Browse the original semester-wise study materials.</p></div>
+    <div class="search-box"><span>⌕</span><input id="browseSearch" type="search" placeholder="Search semester, subject or file..."><button id="browseClear">✕</button></div>
+    <div id="browseContent"></div>
+   </section>
+
   <!-- PDF VIEWER -->
   <div aria-modal="true" class="pdf-viewer" id="pdfViewer" role="dialog">
    <div class="pdf-header">
@@ -1430,7 +1642,17 @@ categories:[
 {name:"DBMS Unit 2 Notes",url:"https://drive.google.com/file/d/1bSxbPOHVhnmm9a0iif1U5fl6PSydKlMU/view?usp=drivesdk"},
 {name:"DBMS Unit 3 Notes",url:"https://drive.google.com/file/d/1OcnxUJqmcZ6IwVjQuZ_XTaqty5qxezYB/view?usp=drivesdk"},
 {name:"DBMS Unit 4 Notes",url:"https://drive.google.com/file/d/1TOYmF2e22au2tbiwcOE-jjOD_PBH3HlE/view?usp=drivesdk"}
-]}
+]},
+{
+  title:"Question Bank",
+  icon:"📝",
+  files:[
+    {
+      name:"DBMS Question Bank",
+      url:"https://drive.google.com/file/d/1EUHA1BrSZ8P3GWR8iCpIC-GCD04PzvXr/view?usp=drivesdk"
+    }
+  ]
+}
 ]
 },
 {
@@ -1457,6 +1679,10 @@ id:"s3-cloud",name:"Cloud Computing",short:"Cloud Computing Study Materials",ico
 categories:[
 {title:"Syllabus",icon:"📋",files:[
 {name:"Cloud Computing Syllabus",url:"https://drive.google.com/file/d/13JjXaYlHuEZZM6VHscW1UP9aw29598e0/view?usp=drivesdk"}
+]},
+
+{title:"Model Question Paper",icon:"📝",files:[
+{name:"Cloud Computing Model Question Paper",url:"https://drive.google.com/file/d/1qFCiGyhJEhoA83xDdQ0m739IGPbclwpq/view?usp=drivesdk"}
 ]},
 {title:"Unit 1 Notes",icon:"📚",files:[
 {name:"Cloud Computing Unit 1 Notes",url:"https://drive.google.com/file/d/1O42cRcYe_zmRylLzvqGyWhFVn0V9u0bn/view?usp=drivesdk"},
@@ -1486,6 +1712,7 @@ categories:[
 const homePage=document.getElementById("homePage");
 const semesterPage=document.getElementById("semesterPage");
 const subjectPage=document.getElementById("subjectPage");
+const browsePage=document.getElementById("browsePage");
 const navButton=document.querySelector(".nav-button");
 
 let currentSemester="1";
@@ -1507,7 +1734,8 @@ function switchPage(page){
   const pages = {
     home: homePage,
     semester: semesterPage,
-    subject: subjectPage
+    subject: subjectPage,
+    browse: browsePage
   };
 
   const target = pages[page];
@@ -1575,6 +1803,94 @@ history.pushState({page:"semester",semester:id},"",
 "?semester="+id);
 
 }
+
+
+
+/* SIDEBAR ROUTING: keeps the original semester and Google Drive resources */
+function closeSidebar(){
+ document.getElementById("sidebar").classList.remove("open");
+ document.getElementById("sideOverlay").classList.remove("open");
+ document.body.classList.remove("menu-open");
+ document.getElementById("menuToggle").setAttribute("aria-expanded","false");
+}
+function toggleSidebar(){
+ const open=!document.getElementById("sidebar").classList.contains("open");
+ document.getElementById("sidebar").classList.toggle("open",open);
+ document.getElementById("sideOverlay").classList.toggle("open",open);
+ document.body.classList.toggle("menu-open",open);
+ document.getElementById("menuToggle").setAttribute("aria-expanded",String(open));
+}
+document.getElementById("menuToggle").addEventListener("click",toggleSidebar);
+document.getElementById("sideOverlay").addEventListener("click",closeSidebar);
+document.querySelectorAll(".side-nav button").forEach(button=>{
+ button.addEventListener("click",()=>{closeSidebar();routeSidebar(button.dataset.route);});
+});
+function routeSidebar(route){
+ document.querySelectorAll(".side-nav button").forEach(b=>b.classList.toggle("active",b.dataset.route===route));
+ if(route==="dashboard"){showHome();return;}
+ if(route==="semesters"){showHome();setTimeout(()=>document.getElementById("semesterSection").scrollIntoView({behavior:"smooth"}),80);return;}
+ const details={
+  papers:["QUESTION PAPERS","All Semester Question Papers","Find previous and model papers using the original website's stored links.",/question|paper|previous year|model paper/i],
+  important:["EXAM PREPARATION","Important Questions","Browse resources marked as important questions.",/important question|question bank/i],
+  resources:["STUDY LIBRARY","Study Resources","Syllabus, notes, textbooks, lab manuals and other study materials.",null],
+  recent:["LATEST LIBRARY","Recently Added","Resources available in your original study library.",null],
+  about:[
+  "ABOUT THE PROJECT",
+  "About Study Hub",
+  "BCA Study Hub is a student-friendly learning platform designed to help BCA students access semester-wise study materials in one place. It provides notes, syllabus, previous year question papers, important questions, lab resources and other academic materials. The main aim is to make learning easier, organised and accessible for students.",
+  null
+]
+ };
+ const d=details[route]||details.resources;
+ document.getElementById("browseEyebrow").textContent=d[0];
+ document.getElementById("browseTitle").textContent=d[1];
+ document.getElementById("browseDescription").textContent=d[2];
+ document.getElementById("browseSearch").value="";
+ renderBrowse(route,"");
+ switchPage("browse");
+ document.title=d[1]+" | BCA Study Hub";
+ history.pushState({page:"browse",route},"","?section="+route);
+}
+function collectOriginalResources(){
+ const result=[];
+ const sets=[{id:"1",label:"Semester 1",subjects:semester1},{id:"2",label:"Semester 2",subjects:[]},{id:"3",label:"Semester 3",subjects:semester3}];
+ sets.forEach(set=>set.subjects.forEach(subject=>subject.categories.forEach(category=>category.files.forEach(file=>{
+ result.push({semester:set.label,subject:subject.name,category:category.title,name:file.name,url:file.url||"",icon:category.icon||"📄"});
+ }))));
+ return result;
+}
+function renderBrowse(route,query){
+ const container=document.getElementById("browseContent");
+ container.innerHTML="";
+ let rows=collectOriginalResources();
+ if(route==="papers")rows=rows.filter(x=>/question|paper|previous year|model paper/i.test(x.category+" "+x.name));
+ else if(route==="important")rows=rows.filter(x=>/important question|question bank/i.test(x.category+" "+x.name));
+ else if(route==="resources")rows=rows.filter(x=>!/question|paper|previous year|model paper|important question|question bank/i.test(x.category+" "+x.name));
+ else if(route==="recent")rows=rows.slice(-14).reverse();
+ const q=(query||"").toLowerCase().trim();
+ if(q)rows=rows.filter(x=>(x.semester+" "+x.subject+" "+x.category+" "+x.name).toLowerCase().includes(q));
+ if(route==="about"){
+  container.innerHTML='<div class="coming-soon"><div class="coming-icon">🎓</div><h2>Study Hub</h2><p>BCA Learning Platform — your semester-wise space for question papers, notes, syllabi and learning resources. Choose a menu item to explore the original website content.</p></div>';
+  return;
+ }
+ if(!rows.length){container.innerHTML='<div class="no-results">No matching resources found in the current website content.</div>';return;}
+ rows.forEach((item,i)=>{
+  const card=document.createElement("article");card.className="browse-item";card.style.animationDelay=(i*.025)+"s";
+  const symbol=document.createElement("div");symbol.className="browse-symbol";symbol.textContent=item.icon;
+  const info=document.createElement("div");info.style.minWidth="0";info.style.flex="1";
+  const title=document.createElement("h3");title.textContent=item.name;
+  const meta=document.createElement("p");meta.textContent=item.semester+" · "+item.subject+" · "+item.category;
+  info.append(title,meta);
+  if(item.url){const view=document.createElement("button");view.className="resource-btn";view.textContent="View PDF ↗";view.addEventListener("click",()=>openPDF(item.url,item.name));const drive=document.createElement("a");drive.className="resource-btn secondary";drive.href=item.url;drive.target="_blank";drive.rel="noopener";drive.textContent="Open in Drive";info.append(view,drive);}
+  else {const note=document.createElement("p");note.textContent="Resource link not available";info.append(note);}
+  card.append(symbol,info);container.append(card);
+ });
+}
+document.getElementById("browseSearch").addEventListener("input",e=>{
+ const active=document.querySelector(".side-nav button.active");
+ if(active&&active.dataset.route!=="dashboard"&&active.dataset.route!=="semesters")renderBrowse(active.dataset.route,e.target.value);
+});
+document.getElementById("browseClear").addEventListener("click",()=>{document.getElementById("browseSearch").value="";const active=document.querySelector(".side-nav button.active");if(active)renderBrowse(active.dataset.route,"");});
 
 
 /* =========================================
@@ -2119,5 +2435,115 @@ switchPage("semester");
 
 }
   </script>
- </body>
+ 
+<style id="study-hub-book-stack-motion">
+/* Focused animation upgrade for the exact homepage book-stack illustration */
+.hero-book{
+  transform-style:preserve-3d !important;
+  animation:studyHubBookCard 5.8s ease-in-out infinite !important;
+  box-shadow:0 24px 55px rgba(0,0,0,.48),0 0 28px rgba(80,205,255,.18),inset 0 1px 0 rgba(255,255,255,.16) !important;
+}
+.book-emoji{
+  display:inline-block;
+  transform-origin:50% 75%;
+  animation:studyHubBooksFloat 3.4s ease-in-out infinite !important;
+  filter:drop-shadow(0 8px 9px rgba(39,190,255,.28));
+  will-change:transform,filter;
+}
+.hero-book:before{animation:studyHubCoverShine 5s ease-in-out infinite !important}
+.hero-art .orbit,.hero-art .orbit-ring{animation-duration:18s !important}
+@keyframes studyHubBooksFloat{
+  0%,100%{transform:translateY(0) rotate(-5deg) rotateY(-9deg) scale(1);filter:drop-shadow(0 7px 8px rgba(39,190,255,.24))}
+  25%{transform:translateY(-10px) rotate(2deg) rotateY(12deg) scale(1.045);filter:drop-shadow(0 13px 13px rgba(74,210,255,.42))}
+  55%{transform:translateY(-4px) rotate(5deg) rotateY(-5deg) scale(1.02)}
+  78%{transform:translateY(-13px) rotate(-2deg) rotateY(8deg) scale(1.04)}
+}
+@keyframes studyHubBookCard{
+  0%,100%{transform:translate3d(0,0,0) rotateX(2deg) rotateY(-4deg)}
+  50%{transform:translate3d(0,-7px,0) rotateX(-2deg) rotateY(4deg)}
+}
+@keyframes studyHubCoverShine{
+  0%,100%{opacity:.35;filter:blur(0)}
+  50%{opacity:.75;filter:blur(1px)}
+}
+@media(prefers-reduced-motion:reduce){.hero-book,.book-emoji,.hero-book:before{animation:none!important}}
+</style>
+
+
+
+<style id="hero-animation-reference-style">
+/* Hero layout inspired by the user's second screenshot: one framed scene,
+   complete book-stack icon, and four gently orbiting study symbols. */
+.hero-art{
+  min-height:480px!important;
+  margin:28px 0 34px!important;
+  padding:30px 12px!important;
+  border:1px solid rgba(116,181,255,.20)!important;
+  border-radius:34px!important;
+  background:
+    radial-gradient(ellipse at 50% 48%,rgba(40,143,226,.16),transparent 48%),
+    linear-gradient(145deg,rgba(13,25,54,.76),rgba(7,18,39,.72))!important;
+  box-shadow:inset 0 1px rgba(255,255,255,.035),0 24px 65px rgba(0,0,0,.16)!important;
+  overflow:hidden!important;
+  flex-direction:row!important;
+  isolation:isolate;
+}
+.hero-art .bca-title{display:none!important}
+.hero-art .orbit{z-index:0!important;width:290px;height:290px;border-color:rgba(80,190,255,.20)!important}
+.hero-art .orbit.two{width:350px;height:245px;border-color:rgba(55,220,180,.16)!important}
+.hero-art .orbit.three{width:235px;height:345px;border-color:rgba(125,155,255,.15)!important}
+.hero-book{
+  z-index:2!important;
+  width:220px!important;height:235px!important;
+  gap:17px!important;
+  border-radius:25px!important;
+  background:linear-gradient(145deg,rgba(20,39,76,.97),rgba(10,22,46,.98))!important;
+  border:1px solid rgba(125,190,255,.27)!important;
+  box-shadow:0 18px 48px rgba(0,0,0,.36),0 0 32px rgba(56,190,255,.12),inset 0 1px rgba(255,255,255,.07)!important;
+  animation:referenceCardFloat 5.2s ease-in-out infinite!important;
+}
+.hero-book:after{right:-7px!important;width:7px!important}
+.book-emoji{
+  font-size:76px!important;
+  line-height:1.15!important;
+  animation:referenceStackFloat 3.7s ease-in-out infinite!important;
+  filter:drop-shadow(0 8px 8px rgba(0,0,0,.25))!important;
+}
+.hero-book strong{font-size:24px!important;letter-spacing:2px!important}
+.hero-book small{font-size:9px!important;letter-spacing:3px!important}
+.hero-float-icon{
+  position:absolute;z-index:3;
+  display:grid;place-items:center;
+  width:66px;height:66px;
+  border-radius:20px;
+  font-size:27px;
+  background:rgba(12,27,55,.82);
+  border:1px solid rgba(118,182,255,.20);
+  box-shadow:0 10px 28px rgba(0,0,0,.20),inset 0 1px rgba(255,255,255,.05);
+  animation:referenceIconDrift 4.6s ease-in-out infinite;
+}
+.icon-book{left:10%;top:19%;animation-delay:-.5s}
+.icon-brain{right:10%;top:26%;animation-delay:-1.4s}
+.icon-laptop{left:13%;bottom:20%;animation-delay:-2.2s}
+.icon-spark{right:11%;bottom:24%;animation-delay:-3s}
+@keyframes referenceCardFloat{0%,100%{transform:translateY(0) rotateY(-2deg)}50%{transform:translateY(-9px) rotateY(2deg)}}
+@keyframes referenceStackFloat{0%,100%{transform:translateY(0) rotate(-3deg) scale(1)}50%{transform:translateY(-12px) rotate(3deg) scale(1.06)}}
+@keyframes referenceIconDrift{0%,100%{transform:translateY(0) rotate(0);box-shadow:0 10px 28px rgba(0,0,0,.20),0 0 0 rgba(70,195,255,0)}50%{transform:translateY(-12px) rotate(5deg);box-shadow:0 14px 32px rgba(0,0,0,.24),0 0 18px rgba(70,195,255,.12)}}
+@media(max-width:600px){
+ .hero-art{min-height:430px!important;margin-top:24px!important;border-radius:30px!important}
+ .hero-book{width:205px!important;height:220px!important}
+ .book-emoji{font-size:70px!important}
+ .hero-float-icon{width:53px;height:53px;border-radius:16px;font-size:23px}
+ .icon-book{left:8%;top:18%}.icon-brain{right:8%;top:24%}
+ .icon-laptop{left:10%;bottom:17%}.icon-spark{right:9%;bottom:21%}
+ .hero-art .orbit{width:245px;height:245px}
+ .hero-art .orbit.two{width:290px;height:200px}
+ .hero-art .orbit.three{width:190px;height:285px}
+}
+@media(prefers-reduced-motion:reduce){
+ .hero-book,.book-emoji,.hero-float-icon{animation:none!important}
+}
+</style>
+
+</body>
 </html>
